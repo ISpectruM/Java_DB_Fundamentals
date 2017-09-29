@@ -1,8 +1,8 @@
-/* Problem 1.Create database*/
+--/* Problem 1.Create database*/
 CREATE DATABASE `minions`
 USE `minions`;
 
-/* Problem 2. Create tables*/
+--/* Problem 2. Create tables*/
 CREATE TABLE `minions`(
 `id` INT PRIMARY KEY NOT NULL,
 `name` VARCHAR(15) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE `towns`(
 `name` VARCHAR(15) NOT NULL
 );
 
-/*Problem 3*/
+--/*Problem 3*/
 ALTER TABLE minions
 ADD `town_id` INT;
 
@@ -23,7 +23,7 @@ ADD CONSTRAINT `fk_towns_id`
 FOREIGN KEY (`town_id`)
 REFERENCES  towns(id);
 
-/*Problem 4*/
+--/*Problem 4*/
 INSERT INTO towns(`id`,`name`)
 VALUES (1,'Sofia'),
 (2,'Plovdiv'),
@@ -34,14 +34,14 @@ VALUES (1,'Kevin',22,1),
 (2,'Bob',15,3),
 (3,'Steward',NULL,2);
 
-/*Problem 5*/
+--/*Problem 5*/
 TRUNCATE TABLE minions;
 
-/*Problem 6*/
+--/*Problem 6*/
 DROP TABLE minions;
 DROP TABLE towns
 
-/*Problem 7*/
+--/*Problem 7*/
 CREATE TABLE `people`
 (
 `id` INT PRIMARY KEY AUTO_INCREMENT,
@@ -62,7 +62,7 @@ VALUES
 ('Mitch',NULL,1.7,20.3,'m','2009-02-18','Fashion consultant till 1999!'),
 ('Boiko',205,1.8,22.3,'m','2009-02-19','Likes photography and playing piano.')
 
-/*Problem 8 */
+--/*Problem 8 */
 CREATE TABLE `users`
 (
 `id` BIGINT PRIMARY KEY AUTO_INCREMENT UNIQUE KEY,
@@ -81,7 +81,7 @@ VALUES
 ('Palabin','123123',25000,'2017-03-15 03:12:12','true'),
 ('Lalabin','123123',25000,'2017-03-15 12:03:12','false');
 
-/* Problem 9 */
+--/* Problem 9 */
 ALTER TABLE users
 DROP PRIMARY KEY;
 
@@ -91,14 +91,14 @@ MODIFY id BIGINT NOT NULL;
 ALTER TABLE users
 ADD CONSTRAINT pk_id PRIMARY KEY(id,username);
 
-/* Problem 10 */
+--/* Problem 10 */
 ALTER TABLE users
 ALTER COLUMN last_login_time DROP DEFAULT;
 
 ALTER TABLE users
 MODIFY COLUMN last_login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
-/* Problem 11 */
+--/* Problem 11 */
 ALTER TABLE users
 DROP PRIMARY KEY,
 ADD PRIMARY KEY (`id`),
