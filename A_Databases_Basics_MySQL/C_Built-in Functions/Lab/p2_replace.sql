@@ -4,4 +4,5 @@ WHERE SUBSTRING(`title`,1,3) = 'The';
 
 SELECT title
 FROM books
-WHERE SUBSTRING(title,1,3) = '***';
+WHERE SUBSTRING(title,1,3) = '***'
+ORDER BY id;
