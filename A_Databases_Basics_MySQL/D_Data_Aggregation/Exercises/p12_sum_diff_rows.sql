@@ -1,4 +1,4 @@
-SELECT SUM(w.deposit_amount-
+    SELECT SUM(w.deposit_amount-
 (
 	SELECT w1.deposit_amount
 	FROM wizzard_deposits AS w1
