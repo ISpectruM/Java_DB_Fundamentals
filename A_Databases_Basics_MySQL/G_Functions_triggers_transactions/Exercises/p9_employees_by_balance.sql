@@ -14,3 +14,19 @@ BEGIN
 END $$
 
 CALL usp_get_holders_with_balance_higher_than(7000);
+
+
+USE soft_uni;
+
+DELIMITER $$
+CREATE PROCEDURE usp_get_holders_with_balance_higher_than(value DOUBLE(20,4))
+BEGIN
+	SELECT ah.first_name, ah.last_name
+	FROM account_holders AS ah
+	JOIN accounts AS ac ON ac.account_holder_id = ah.id
+    GROUP BY ac.account_holder_id
+	HAVING value < SUM(ac.balance)
+	ORDER BY ac.id,ah.first_name, ah.last_name;
+END $$
+
+CALL usp_get_holders_with_balance_higher_than(7000);
