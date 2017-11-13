@@ -12,8 +12,7 @@ public class D_EmployeesFromDepartment {
         em.getTransaction().begin();
         List<Employee> employees = em.createQuery(
                 "SELECT e FROM Employee e " +
-                        "JOIN Department d ON e.department.id = d.id" +
-                        " WHERE d.name = 'Research and Development'" +
+                        " WHERE e.department.name = 'Research and Development'" +
                         "ORDER BY e.salary,e.id").getResultList();
 
         employees.forEach(e ->
